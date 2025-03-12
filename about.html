@@ -6,21 +6,18 @@
     <title>About Us</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <!-- Logo -->
             <a href="index.html">
                 <img src="img/icon128.png" alt="Company Logo" class="logo">
             </a>
     
-            <!-- Botón de hamburguesa (visible solo en móviles/tablets) -->
-            <button class="menu-toggle" aria-label="Abrir menú">
-                ☰
-            </button>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     
-            <!-- Menú de navegación -->
             <nav class="menu">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -39,11 +36,11 @@
                 <div class="about-info">
                     <h2 class="about-title animate__animated animate__fadeIn">Sobre Nosotros</h2>
                     <p class="about-description animate__animated animate__fadeIn animate__delay-1s">
-                        Somos una empresa comprometida con la calidad y la innovación. Nuestro equipo está dedicado a ofrecerte los mejores productos y servicios para satisfacer tus necesidades. Con años de experiencia en el mercado, nos esforzamos por superar tus expectativas en cada proyecto.
+                        Somos una empresa comprometida con la calidad y la innovación...
                     </p>
                 </div>
                 <div class="about-image-container animate__animated animate__fadeIn animate__delay-2s">
-                    <video autoplay loop muted class="about-image" id="rotating-video">
+                    <video autoplay loop muted class="about-video">
                         <source src="img/video1.mp4" type="video/mp4">
                         Tu navegador no soporta la etiqueta de video.
                     </video>
@@ -53,65 +50,105 @@
 
         <section class="mission-vision-section">
             <div class="mission-vision-content">
-                <div class="mission animate__animated animate__fadeInLeft">
+                <div class="mission-box animate__animated animate__fadeInLeft">
+                    <i class="fas fa-bullseye mission-icon"></i>
                     <h3>Misión</h3>
-                    <p>Nuestra misión es proporcionar productos de alta calidad que satisfagan las necesidades de nuestros clientes, superando sus expectativas en cada etapa del proceso.</p>
+                    <p>Proporcionar productos de alta calidad que superen las expectativas de nuestros clientes.</p>
                 </div>
-                <div class="vision animate__animated animate__fadeInRight">
+                
+                <div class="vision-box animate__animated animate__fadeInRight">
+                    <i class="fas fa-eye vision-icon"></i>
                     <h3>Visión</h3>
-                    <p>Aspiramos a ser líderes en nuestro sector, reconocidos por nuestra innovación, calidad y compromiso con la excelencia.</p>
+                    <p>Ser líderes reconocidos en innovación y calidad en nuestro sector.</p>
                 </div>
-                <div class="values animate__animated animate__fadeInUp">
+                
+                <div class="values-box animate__animated animate__fadeInUp">
+                    <i class="fas fa-heart values-icon"></i>
                     <h3>Valores</h3>
                     <ul>
-                        <li>Calidad</li>
-                        <li>Innovación</li>
-                        <li>Compromiso</li>
-                        <li>Integridad</li>
+                        <li><i class="fas fa-check-circle"></i> Calidad</li>
+                        <li><i class="fas fa-lightbulb"></i> Innovación</li>
+                        <li><i class="fas fa-handshake"></i> Compromiso</li>
+                        <li><i class="fas fa-shield-alt"></i> Integridad</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="process-section">
-            <h2 class="process-title animate__animated animate__fadeIn">Nuestro Proceso</h2>
-            <div class="process-steps">
-                <div class="step animate__animated animate__fadeInLeft animate__delay-1s">
-                    <h3>1. Encargo del Producto</h3>
-                    <p>Los clientes nos contactan con sus necesidades y especificaciones.</p>
-                </div>
-                <div class="step animate__animated animate__fadeInLeft animate__delay-2s">
-                    <h3>2. Diseño</h3>
-                    <p>Nuestro equipo de diseño crea un concepto único y personalizado.</p>
-                </div>
-                <div class="step animate__animated animate__fadeInLeft animate__delay-3s">
-                    <h3>3. Fabricación</h3>
-                    <p>Fabricamos el producto con los más altos estándares de calidad.</p>
-                </div>
-                <div class="step animate__animated animate__fadeInLeft animate__delay-4s">
-                    <h3>4. Instalación</h3>
-                    <p>Entregamos e instalamos el producto en el lugar deseado.</p>
-                </div>
+        <!-- Sección de Proceso Mejorada -->
+<section class="process-section">
+    <h2 class="process-title animate__animated animate__fadeIn">Nuestro Proceso</h2>
+    <div class="process-steps">
+        <!-- Paso 1 -->
+        <div class="step animate__animated animate__fadeInLeft">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                
             </div>
-        </section>
+            <div class="step-image">
+                <img src="img/chat.jpg" alt="Encargo">
+            </div>
+            <div class="step-content">
+                <h3>Encargo del Producto</h3>
+                <p>Recibimos tus requerimientos y especificaciones técnicas</p>
+            </div>
+        </div>
 
-        <section class="dedication-section">
-            <h2 class="dedication-title animate__animated animate__fadeIn">Nuestra Dedicación</h2>
-            <p class="dedication-description animate__animated animate__fadeIn animate__delay-1s">
-                En cada paso del proceso, nuestro equipo se esfuerza por ofrecer la mejor experiencia posible. Desde el primer contacto hasta la instalación final, nos aseguramos de que cada detalle esté perfectamente cuidado.
-            </p>
-            <div class="dedication-video animate__animated animate__fadeIn animate__delay-2s">
-                <video autoplay loop muted>
-                    <source src="img/video2.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
+        <!-- Paso 2 -->
+        <div class="step animate__animated animate__fadeInLeft animate__delay-1s">
+            <div class="step-header">
+                <div class="step-number">2</div>
+            
             </div>
-        </section>
+            <div class="step-image">
+                <img src="img/Diseño.jpg" alt="Diseño">
+            </div>
+            <div class="step-content">
+                <h3>Diseño Personalizado</h3>
+                <p>Creación de planos y modelos 3D especializados</p>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step animate__animated animate__fadeInLeft animate__delay-2s">
+            <div class="step-header">
+                <div class="step-number">3</div>
+            
+            </div>
+            <div class="step-image">
+                <img src="img/fabricacion.jpg" alt="Fabricación">
+            </div>
+            <div class="step-content">
+                <h3>Fabricación</h3>
+                <p>Producción con materiales de primera calidad</p>
+            </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step animate__animated animate__fadeInLeft animate__delay-3s">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                
+            </div>
+            <div class="step-image">
+                <img src="img/instalacion.jpeg" alt="Instalación">
+            </div>
+            <div class="step-content">
+                <h3>Instalación Profesional</h3>
+                <p>Montaje y entrega final con garantía</p>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
+                <!-- Añade este div para la imagen animada -->
+                <div class="animated-logo">
+                    <img src="img/icon128.png" alt="Tinajas VIP Logo" class="floating">
+                </div>
                 <p class="footer-title">Tinajas VIP</p>
                 <p>Hacemos posible tus productos.</p>
             </div>
@@ -134,10 +171,10 @@
             <p>&copy; 2025 Tinajas VIP. Todos los derechos reservados.</p>
         </div>
     </footer>
-
     <a href="https://wa.me/XXXXXXXXXXX" class="whatsapp-button" target="_blank">
         <img src="img/wsp.png" alt="WhatsApp">
     </a>
+    
     <script src="menu.js"></script>
 </body>
 </html>

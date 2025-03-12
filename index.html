@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Page Project</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
 </head>
 <body>
@@ -17,7 +19,7 @@
     
             <!-- Botón de hamburguesa (visible solo en móviles/tablets) -->
             <button class="menu-toggle" aria-label="Abrir menú">
-                ☰
+                <i class="fa-solid fa-bars"></i>
             </button>
     
             <!-- Menú de navegación -->
@@ -89,9 +91,10 @@
             
             <div class="presentation-image">
                 <div class="image-slider">
-                    <img src="img/tinaja.jpeg" alt="Tinaja de madera" class="slider-image active">
-                    <img src="img/sauna2.jpeg" alt="Sauna relajante" class="slider-image">
-                    <img src="img/piscina.jpeg" alt="Piscina natural" class="slider-image">
+                    <img src="img/foto 17.jpg" alt="Tinaja de madera" class="slider-image active" style="animation-delay: 0s;">
+                    <img src="img/foto 15.jpg" alt="Sauna relajante" class="slider-image" style="animation-delay: 3s;">
+                    <img src="img/tinaja3.jpg" alt="Piscina natural" class="slider-image" style="animation-delay: 6s;">
+                    <img src="img/foto 12.jpg" alt="Piscina natural" class="slider-image" style="animation-delay: 9s;"> 
                 </div>
                 <div class="image-overlay"></div>
             </div>
@@ -100,28 +103,28 @@
 
     <!-- Carrusel automático -->
 
-<section class="carousel">
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="img/sauna2.jpeg" alt="Sauna">
+    <section class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="img/foto 1.jpg" alt="Sauna">
+            </div>
+            <div class="carousel-slide">
+                <img src="img/foto 9.jpg" alt="Tinaja de Madera">
+            </div>
+            <div class="carousel-slide">
+                <img src="img/foto 2.jpg" alt="Piscina">
+            </div>
+            <div class="carousel-slide">
+                <img src="img/foto 5.jpg" alt="Sauna">
+            </div>
+            <div class="carousel-slide">
+                <img src="img/foto 13.jpg" alt="Tinaja de Madera">
+            </div>
+            <div class="carousel-slide">
+                <img src="img/foto 16.jpg" alt="Piscina">
+            </div>
         </div>
-        <div class="carousel-slide">
-            <img src="img/tinaja.jpeg" alt="Tinaja de Madera">
-        </div>
-        <div class="carousel-slide">
-            <img src="img/piscina.jpeg" alt="Piscina">
-        </div>
-        <div class="carousel-slide">
-            <img src="img/sauna2.jpeg" alt="Sauna">
-        </div>
-        <div class="carousel-slide">
-            <img src="img/tinaja.jpeg" alt="Tinaja de Madera">
-        </div>
-        <div class="carousel-slide">
-            <img src="img/piscina.jpeg" alt="Piscina">
-        </div>
-    </div>
-</section>
+    </section>
     
 <!-- Sección de Beneficios Científicos -->
 <section class="benefits">
@@ -203,7 +206,8 @@
                 <ul>
                     <li>✅ Región V: Envío GRATIS</li>
                     <li>✅ Consultar stock en contacto</li>
-                    <li>✅  Algunos accesorios se venden por separado</li>
+                    <li>✅ Algunos accesorios se venden por separado</li>
+                    <li>✅ Se acepta todo medio de pago 💵</li>
                 </ul>
             </div>
         </div>
@@ -221,7 +225,7 @@
                     <li>📏 Medidas a solicitud</li>
                     <li>🎚 Selección de maderas</li>
                     <li>💵 Descuentos por volumen</li>
-                    <li>💵 Seleccione el color que dese</li>
+                    <li>🖌️ Seleccione el color que dese</li>
                 </ul>
                 
             </div>
@@ -240,6 +244,10 @@
 <footer>
     <div class="footer-content">
         <div class="footer-section">
+            <!-- Añade este div para la imagen animada -->
+            <div class="animated-logo">
+                <img src="img/icon128.png" alt="Tinajas VIP Logo" class="floating">
+            </div>
             <p class="footer-title">Tinajas VIP</p>
             <p>Hacemos posible tus productos.</p>
         </div>
@@ -265,8 +273,13 @@
     <a href="https://wa.me/XXXXXXXXXXX" class="whatsapp-button" target="_blank">
         <img src="img/wsp.png" alt="WhatsApp">
     </a>
+    <div class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
     <script src="carousel.js"></script>
 
     <script src="menu.js"></script>
+    
 </body>
 </html>
