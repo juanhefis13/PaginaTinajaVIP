@@ -897,14 +897,14 @@ main {
 
 /* ------------------NUESTROS PRODUCTOS-------------------------- */
 
-/* Estilos mejorados para la sección "Sobre Nosotros" */
+
 /* Estilos mejorados para la sección "Sobre Nosotros" */
 .about-section {
-    padding: 100px 20px 50px;
-    background-color: #f4f4f4;
     margin-top: 60px;
     position: relative;
     overflow: hidden;
+    padding: 100px 20px 50px;
+    background-color: #f4f4f4;
 }
 
 .about-content {
@@ -989,6 +989,8 @@ main {
     position: relative;
     z-index: 2;
 }
+
+
 
 /* ========== MISSION/VISION SECTION ========== */
 .mission-vision-section {
@@ -1213,7 +1215,7 @@ main {
 
 .contact-title {
     font-size: 2.5em;
-    color: #5dc1b9;
+    color: #000000;
     margin-bottom: 40px;
     animation: fadeInDown 1s ease-in-out;
 }
@@ -1365,15 +1367,150 @@ main {
     background-color: #4aa8a1;
 }
 /* ------------------------------Sucursales---------------------- */
+/* ------------------------------Sucursales---------------------- */
+.sucursal {
+    margin: 80px auto;
+    max-width: 1300px;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffffff 100%);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(19, 20, 20, 0.3);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #000000;
+    transition: transform 0.5s ease;
+}
 
+.sucursal:hover {
+    transform: scale(1.02);
+}
+
+.sucursal-title {
+    font-size: 3em;
+    color: #000000; /* Letras negras */
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 6px rgba(93, 193, 185, 0.5); /* Sombra ajustada para contraste */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background: rgba(93, 193, 185, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.sucursal-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sucursal-info {
+    flex: 1;
+    min-width: 320px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sucursal-info:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(93, 193, 185, 0.3);
+}
+
+.sucursal-description {
+    font-size: 1.3em;
+    line-height: 1.7;
+    color: #000000; /* Letras negras */
+    margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.sucursal-highlight {
+    font-size: 1.2em;
+    color: #000000; /* Letras negras */
+    font-weight: 600;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, rgba(93, 193, 185, 0.2), rgba(255, 255, 255, 0.8));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.3s ease;
+}
+
+.sucursal-highlight i {
+    color: #5dc1b9; /* Mantengo el ícono en el color base */
+}
+
+.sucursal-highlight:hover {
+    background: linear-gradient(90deg, rgba(93, 193, 185, 0.4), rgba(255, 255, 255, 1));
+}
+
+.sucursal-map {
+    flex: 1;
+    min-width: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.sucursal-map:hover {
+    transform: scale(1.05);
+    box-shadow: 0 18px 40px rgba(93, 193, 185, 0.4);
+}
+
+.map-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    background: #5dc1b9;
+    color: #000000; /* Letras negras */
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(93, 193, 185, 0.5);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.map-button i {
+    color: #000000; /* Ícono negro para consistencia */
+}
+
+.map-button:hover {
+    background: #4aa8a1;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(93, 193, 185, 0.7);
+}
 
 /* ------------------------------FOOTER---------------------- */
-/* Footer */
+/* Mantengo el footer original, pero ajusto algunos detalles para cohesión */
 footer {
-    background-color: #000; /* Fondo negro */
+    background-color: #000;
     color: white;
     padding: 40px 20px 20px;
-    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-content {
@@ -1384,7 +1521,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 20px;
-    border-bottom: 1px solid #444; /* Línea divisoria */
+    border-bottom: 1px solid #444;
 }
 
 .footer-section {
@@ -1397,18 +1534,18 @@ footer {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 10px;
-    color: aquamarine; /* Color moderno para los títulos */
+    color: #5dc1b9; /* Cambio a color base para consistencia */
 }
 
 .footer-section p {
     margin: 8px 0;
     font-size: 0.9em;
-    color: #ccc; /* Color gris claro para el texto */
+    color: #ccc;
 }
 
 .footer-section i {
     margin-right: 10px;
-    color: aquamarine; /* Color moderno para los íconos */
+    color: #5dc1b9; /* Cambio a color base */
 }
 
 .social-links {
@@ -1422,46 +1559,35 @@ footer {
 }
 
 .social-links img:hover {
-    transform: scale(1.1); /* Efecto de escala al hacer hover */
-    filter: brightness(1.2); /* Aumentar el brillo */
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
     font-size: 0.9em;
-    color: #888; /* Color gris para el texto inferior */
+    color: #888;
 }
 
-/* Añade estos estilos al CSS */
 .animated-logo {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .floating {
-    width: 80px; /* Ajusta según tu logo */
+    width: 80px;
     height: auto;
     animation: float 3s ease-in-out infinite;
     filter: drop-shadow(0 5px 15px rgba(93, 193, 185, 0.4));
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-        filter: drop-shadow(0 5px 15px rgba(93, 193, 185, 0.4));
-    }
-    50% {
-        transform: translateY(-20px);
-        filter: drop-shadow(0 15px 25px rgba(93, 193, 185, 0.6));
-    }
-    100% {
-        transform: translateY(0px);
-        filter: drop-shadow(0 5px 15px rgba(93, 193, 185, 0.4));
-    }
+    0% { transform: translateY(0px); filter: drop-shadow(0 5px 15px rgba(93, 193, 185, 0.4)); }
+    50% { transform: translateY(-20px); filter: drop-shadow(0 15px 25px rgba(93, 193, 185, 0.6)); }
+    100% { transform: translateY(0px); filter: drop-shadow(0 5px 15px rgba(93, 193, 185, 0.4)); }
 }
 
-/* Opcional: Efecto al pasar el mouse */
 .floating:hover {
     animation-play-state: paused;
     cursor: pointer;

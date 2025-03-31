@@ -4,9 +4,9 @@
   "description": "A simple web page project with HTML, CSS, and JavaScript.",
   "main": "index.html",
   "scripts": {
-  "start": "live-server .",
-  "build": "echo 'Build step not defined'",
-  "test": "echo 'No tests defined'"
+    "start": "live-server .",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'No tests defined'"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,13 @@
   },
   "devDependencies": {
     "live-server": "^1.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanhefis13/PaginaTinajaVIP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanhefis13/PaginaTinajaVIP/issues"
+  },
+  "homepage": "https://github.com/juanhefis13/PaginaTinajaVIP#readme"
 }
