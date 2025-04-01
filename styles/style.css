@@ -358,11 +358,10 @@ header {
 }
 
 @keyframes imageFlow {
-    0%   { opacity: 1; transform: scale(1) rotate(0); }
-    28%  { opacity: 1; transform: scale(1) rotate(0); }
-    32%  { opacity: 0; transform: scale(0.95) rotate(1deg); }
-    34%  { opacity: 1; transform: scale(1) rotate(0); }
-    100% { opacity: 1; transform: scale(1) rotate(0); }
+    0% { opacity: 1; transform: scale(1); }
+    25% { opacity: 1; transform: scale(1); }
+    30% { opacity: 0; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1.1); }
 }
 
 .image-overlay {
@@ -564,6 +563,7 @@ header {
     color: #856404;
 }
 /* ========== CAROUSEL ========== */
+/* ========== CAROUSEL ========== */
 .carousel {
     position: relative;
     max-width: 1200px;
@@ -580,46 +580,23 @@ header {
 }
 
 .carousel-slide {
-    flex: 0 0 33.33%;
+    flex: 0 0 33.33%; /* 3 imágenes visibles en desktop */
     box-sizing: border-box;
     padding: 0 10px;
+    transition: transform 0.3s ease;
 }
 
 .carousel-slide img {
     width: 100%;
-    height: 300px;
+    height: 300px; /* Altura base en desktop */
     object-fit: cover;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
-/* Añade estos estilos */
-.zoom-active {
-    overflow: hidden;
-}
 
 /* Efecto Zoom */
-.carousel-slide img.zoomed {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-    z-index: 10000;
-    max-width: 80vw;
-    max-height: 80vh;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    cursor: zoom-out;
-}
-/* ========== ZOOM CORREGIDO ========== */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 10000;
-    cursor: zoom-out;
+.zoom-active {
+    overflow: hidden;
 }
 
 .zoomed-image {
@@ -633,6 +610,18 @@ header {
     border-radius: 10px;
     z-index: 10001;
     animation: smoothZoom 0.3s ease-out;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    cursor: zoom-out;
 }
 
 @keyframes smoothZoom {
@@ -681,18 +670,20 @@ main {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
+    max-width: 1200px;
+    overflow: hidden; /* Aseguramos que el contenedor corte cualquier exceso */
+    width: 100%; /* Garantizamos que ocupe el ancho disponible */
+    box-sizing: border-box; /* Incluimos padding en el cálculo del ancho */
 }
 
 .product:hover {
     transform: translateY(-5px);
 }
 
-.product:nth-child(even) {
-    flex-direction: row-reverse;
-}
 
 .description {
     flex: 1;
+    min-height: 300px; /* Asegura que ambas descripciones tengan la misma altura */
     padding: 1.5rem;
 }
 
@@ -763,29 +754,32 @@ main {
 }
 
 .product-features li {
-    position: relative;
-    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre el ícono y el texto */
     font-size: 1.1rem;
     color: #4a5568;
     line-height: 1.6;
 }
 
+
 .product-features li::before {
     content: "✓";
-    position: absolute;
-    left: 0;
     color: #5dc1b9;
     font-weight: bold;
 }
 
 .product img {
-    flex: 1;
-    max-width: 500px;
-    height: 350px;
-    object-fit: cover;
+    width: 100%; /* La imagen siempre ocupa el ancho disponible */
+    max-width: 500px; /* Límite en desktop */
+    height: auto; /* Respetamos proporciones */
+    max-height: 350px; /* Límite de altura */
+    object-fit: cover; /* Mantenemos cover para recortar si es necesario */
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    flex: 0 1 auto; /* Cambiamos flex para priorizar ancho controlado */
+    display: block; /* Aseguramos que sea un elemento de bloque */
 }
 
 .product img:hover {
@@ -897,14 +891,43 @@ main {
 
 /* ------------------NUESTROS PRODUCTOS-------------------------- */
 
-
+/* ------------------NOSOTROS-------------------------- */
 /* Estilos mejorados para la sección "Sobre Nosotros" */
 .about-section {
     margin-top: 60px;
     position: relative;
     overflow: hidden;
     padding: 100px 20px 50px;
-    background-color: #f4f4f4;
+    /* Quitamos la imagen de fondo de aquí */
+    background: none;
+}
+
+/* Capa de fondo con blur */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/foto\ fondo.jpg'); /* Movemos la imagen aquí */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px); /* Ajusta el valor (en px) para más o menos desenfoque */
+    z-index: -1; /* Coloca la imagen detrás de todo */
+}
+
+/* Capa de superposición para oscurecer (opcional) */
+.about-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Capa gris semitransparente */
+    z-index: 0; /* Encima de la imagen, debajo del contenido */
 }
 
 .about-content {
@@ -914,14 +937,16 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
-    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    padding: 40px; /* Espaciado interno */
+    background: none; /* Fondo transparente */
+    border-radius: 15px;
+    box-shadow: none;
+    padding: 40px;
     position: relative;
+    z-index: 1; /* Sobre las capas de fondo */
     overflow: hidden;
 }
 
+/* Resto del CSS sin cambios */
 .about-content::before {
     content: '';
     position: absolute;
@@ -941,9 +966,10 @@ main {
 
 .about-title {
     font-size: 2.5em;
-    color: var(--primary-color);
+    color: #ffffff;
     margin-bottom: 20px;
     position: relative;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .about-title::after {
@@ -959,7 +985,8 @@ main {
 .about-description {
     font-size: 1.1em;
     line-height: 1.6;
-    color: var(--text-color);
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .about-image-container {
@@ -969,6 +996,7 @@ main {
     overflow: hidden;
     box-shadow: var(--box-shadow);
     position: relative;
+    border: 3px solid #5dc1b9; /* Marco simple de 3px en turquesa */
 }
 
 .about-image-container::before {
@@ -978,7 +1006,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro semitransparente */
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     z-index: 1;
 }
@@ -1023,13 +1051,14 @@ main {
 .values-box ul {
     list-style: none;
     padding: 0;
-    text-align: left;
+    text-align: center;
 }
 
 .values-box li {
     margin: 1rem 0;
     display: flex;
-    align-items: center;
+    justify-content: center; /* Centramos horizontalmente los elementos dentro del li */
+    align-items: center; /* Centramos verticalmente */
     gap: 0.5rem;
 }
 
@@ -1707,7 +1736,89 @@ footer {
     }
 }
 
-/* Responsive styles for "Nuestros Productos" Section */
+/* Responsive para "Sobre Nosotros" */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 15px 30px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .about-info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 2em;
+    }
+
+    .about-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-description {
+        font-size: 1em;
+    }
+
+    .about-image-container {
+        max-width: 100%;
+        border: 2px solid #5dc1b9;
+    }
+
+    .about-image-container video {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-section {
+        padding: 40px 10px 20px;
+    }
+
+    .about-content {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .about-title {
+        font-size: 1.8em;
+    }
+
+    .about-description {
+        font-size: 0.95em;
+    }
+
+    .about-image-container video {
+        max-height: 300px;
+    }
+
+    .about-content::before {
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 1.5em;
+    }
+
+    .about-description {
+        font-size: 0.9em;
+    }
+
+    .about-image-container video {
+        max-height: 250px;
+    }
+}
 /* Responsive styles for "Nuestros Productos" Section */
 @media (max-width: 992px) {
     .product-type {
@@ -1761,6 +1872,12 @@ footer {
     .product-type img {
         height: 200px;
     }
+    .product img {
+        width: 100%;
+        height: auto;
+        max-height: 250px; /* Límite máximo */
+        object-fit: cover;
+    }
 
     .type-description h3 {
         font-size: 1.6rem;
@@ -1791,7 +1908,7 @@ footer {
     }
 
     .product-type img {
-        height: 150px;
+        height: 300px;
     }
 
     .type-description h3 {
@@ -1994,16 +2111,20 @@ footer {
 
     .hero-image-container {
         width: 180px;
-        height: 180px;
+        height: 300px;
     }
 
-    /* Carrusel */
     .carousel-slide {
-        flex: 0 0 50%;
+        flex: 0 0 50%; /* 2 imágenes visibles */
     }
 
     .carousel-slide img {
-        height: 250px;
+        height: 25vh; /* Altura dinámica basada en la pantalla */
+        min-height: 200px; /* Altura mínima para no perder calidad */
+    }
+
+    .carousel {
+        padding: 15px; /* Menos padding en pantallas más pequeñas */
     }
 
     /* Productos */
@@ -2015,7 +2136,9 @@ footer {
 
     .product img {
         width: 100%;
-        height: 250px;
+        height: auto;
+        max-height: 250px; /* Límite máximo */
+        object-fit: cover; /* Recorta la imagen si es necesario */
     }
 
     .benefits-grid,
@@ -2048,18 +2171,19 @@ footer {
         height: 150px;
     }
 
-    /* Carrusel */
     .carousel {
         padding: 10px;
     }
 
     .carousel-slide {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* 1 imagen visible por slide */
         padding: 0 5px;
     }
 
     .carousel-slide img {
-        height: 200px;
+        height: 30vh; /* Aumentamos un poco la altura relativa */
+        min-height: 500px; /* Altura mínima razonable */
+        max-height: 250px; /* Límite superior para no exagerar */
     }
 
     /* Proceso */
@@ -2101,11 +2225,16 @@ footer {
     }
 
     .carousel-slide img {
-        height: 180px;
+        height: 28vh; /* Ligeramente menor para pantallas muy pequeñas */
+        min-height: 160px;
+        max-height: 220px;
     }
 
     .product img {
-        height: 200px;
+        width: 100%;
+        height: auto;
+        max-height: 250px; /* Límite máximo */
+        object-fit: cover; /* Recorta la imagen si es necesario */
     }
 
     .step-image {
