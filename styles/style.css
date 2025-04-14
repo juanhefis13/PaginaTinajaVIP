@@ -577,6 +577,7 @@ header {
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .carousel-slide {
@@ -584,6 +585,36 @@ header {
     box-sizing: border-box;
     padding: 0 10px;
     transition: transform 0.3s ease;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
 }
 
 .carousel-slide img {
@@ -1124,7 +1155,7 @@ main {
 }
 
 .step-image {
-    height: 200px;
+    height: 300px;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1.5rem;
@@ -1132,7 +1163,7 @@ main {
 
 .step-image img {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -1772,7 +1803,9 @@ footer {
     }
 
     .about-image-container video {
-        max-height: 400px;
+        width: 100%; /* Asegura que el video ocupe todo el ancho del contenedor */
+        max-height: 300px; /* Ajusta la altura máxima para pantallas medianas */
+        object-fit: cover; /* Recorta el contenido si es necesario */
     }
 }
 
@@ -1795,7 +1828,9 @@ footer {
     }
 
     .about-image-container video {
-        max-height: 300px;
+        width: 100%; /* Asegura que el video ocupe todo el ancho del contenedor */
+        max-height: 250px; /* Ajusta la altura máxima para pantallas pequeñas */
+        object-fit: cover; /* Recorta el contenido si es necesario */
     }
 
     .about-content::before {
@@ -1816,7 +1851,15 @@ footer {
     }
 
     .about-image-container video {
-        max-height: 250px;
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-image-container video {
+        width: 100%; /* Asegura que el video ocupe todo el ancho del contenedor */
+        max-height: 200px; /* Ajusta la altura máxima para pantallas muy pequeñas */
+        object-fit: cover; /* Recorta el contenido si es necesario */
     }
 }
 /* Responsive styles for "Nuestros Productos" Section */
@@ -2008,6 +2051,79 @@ footer {
     }
 }
 
+/* SECTION SUCURSAL */
+
+@media (max-width: 768px) {
+    .sucursal-content {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        gap: 20px; /* Espaciado entre los elementos */
+    }
+
+    .sucursal-info {
+        text-align: center; /* Centra el texto */
+        padding: 15px; /* Reduce el padding */
+    }
+
+    .sucursal-map {
+        width: 100%; /* Asegura que el mapa ocupe todo el ancho */
+        height: 250px; /* Ajusta la altura del mapa */
+    }
+}
+@media (max-width: 576px) {
+    .sucursal-map {
+        height: 200px; /* Reduce la altura del mapa para pantallas más pequeñas */
+    }
+
+    .sucursal-info {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .sucursal-title {
+        font-size: 1.8rem; /* Reduce el tamaño del título */
+    }
+
+    .sucursal-description {
+        font-size: 0.85rem; /* Reduce el tamaño del texto descriptivo */
+        line-height: 1.4; /* Mejora la legibilidad */
+    }
+}
+@media (max-width: 480px) {
+    .sucursal {
+        margin: 20px auto; /* Reduce el margen superior e inferior */
+        padding: 15px; /* Reduce el padding interno */
+    }
+
+    .sucursal-title {
+        font-size: 1.5rem; /* Ajusta el tamaño del título */
+    }
+
+    .sucursal-description {
+        margin-bottom: 10px; /* Reduce el margen inferior */
+    }
+
+    .map-button {
+        padding: 10px 15px; /* Reduce el tamaño del botón */
+        font-size: 0.9rem; /* Ajusta el tamaño del texto del botón */
+    }
+}
+
+@media (max-width: 360px) {
+    .sucursal-content {
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .sucursal-map {
+        height: 180px; /* Reduce aún más la altura del mapa */
+    }
+
+    .map-button {
+        width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+        text-align: center;
+    }
+}
+
+
+
 @media (max-width: 768px) {
     :root {
         --header-height: 60px;
@@ -2145,6 +2261,9 @@ footer {
     .sales-content {
         grid-template-columns: 1fr;
     }
+    .step-image {
+        height: 200px; /* Aumenta la altura para pantallas medianas */
+    }
 }
 
 @media (max-width: 576px) {
@@ -2196,13 +2315,13 @@ footer {
     }
 
     .step-image {
-        height: 150px;
+        height: 250px; /* Aumenta aún más la altura para pantallas pequeñas */
     }
 
-    /* Footer */
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 20px; /* Espaciado entre las secciones */
     }
 
     .footer-section {
@@ -2210,7 +2329,19 @@ footer {
     }
 
     .social-links {
-        justify-content: center;
+        display: flex; /* Activa Flexbox */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        gap: 15px; /* Espaciado entre los íconos */
+    }
+    
+    .social-links img {
+        width: 25px; /* Tamaño fijo para íconos sociales */
+        height: 25px;
+        display: block; /* Asegura que las imágenes sean elementos de bloque */
+    }
+    footer {
+        padding: 20px 10px; /* Reduce el padding en pantallas pequeñas */
     }
 }
 
@@ -2226,8 +2357,8 @@ footer {
 
     .carousel-slide img {
         height: 28vh; /* Ligeramente menor para pantallas muy pequeñas */
-        min-height: 160px;
-        max-height: 220px;
+        min-height: 400px;
+        max-height: 400px;
     }
 
     .product img {
@@ -2238,7 +2369,7 @@ footer {
     }
 
     .step-image {
-        height: 120px;
+        height: 300px; /* Altura máxima para pantallas muy pequeñas */
     }
 
     .map-button {
@@ -2246,7 +2377,11 @@ footer {
     }
 
     .footer-title {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Tamaño más pequeño para pantallas pequeñas */
+    }
+
+    .footer-section p {
+        font-size: 0.8rem; /* Ajusta el tamaño del texto general */
     }
 }
 
@@ -2268,5 +2403,99 @@ footer {
         width: 30px;
         height: 30px;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Ajustes generales */
+    body {
+        font-size: 14px; /* Reduce el tamaño de fuente general */
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .hero-image-container {
+        width: 120px; /* Reduce el tamaño de las imágenes */
+        height: 120px;
+    }
+
+    .carousel-slide img {
+        height: 150px; /* Ajusta la altura de las imágenes del carrusel */
+    }
+
+    .product img {
+        height: 180px; /* Ajusta la altura de las imágenes de productos */
+    }
+
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem; /* Reduce el tamaño de los números */
+    }
+
+    .footer-title {
+        font-size: 0.9rem; /* Reduce el tamaño del título del footer */
+    }
+
+    .footer-section p {
+        font-size: 0.75rem; /* Reduce el tamaño del texto del footer */
+    }
+
+    .social-links img {
+        width: 20px; /* Reduce el tamaño de los íconos sociales */
+        height: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    /* Ajustes generales */
+    body {
+        font-size: 12px; /* Reduce aún más el tamaño de fuente general */
+    }
+
+    .hero-content h1 {
+        font-size: 1.3rem; /* Reduce el tamaño del título */
+    }
+
+    .hero-content p {
+        font-size: 0.8rem; /* Reduce el tamaño del texto */
+    }
+
+    .hero-image-container {
+        width: 100px; /* Reduce el tamaño de las imágenes */
+        height: 100px;
+    }
+
+    .carousel-slide img {
+        height: 300x; /* Ajusta la altura de las imágenes del carrusel */
+    }
+
+    .product img {
+        height: 150px; /* Ajusta la altura de las imágenes de productos */
+    }
+
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem; /* Reduce el tamaño de los números */
+    }
+
+    .footer-title {
+        font-size: 0.8rem; /* Reduce el tamaño del título del footer */
+    }
+
+    .footer-section p {
+        font-size: 0.7rem; /* Reduce el tamaño del texto del footer */
+    }
+
+    .social-links img {
+        width: 18px; /* Reduce el tamaño de los íconos sociales */
+        height: 18px;
     }
 }
